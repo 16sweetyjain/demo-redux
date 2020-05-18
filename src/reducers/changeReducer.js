@@ -1,5 +1,6 @@
 
-const colors=[
+const initState={
+  posts:[
   {
   id:'1',color_id:'	#ff4000',visible:true
   },
@@ -19,19 +20,18 @@ const colors=[
 
      id:'5', color_id:'#bfff00',visible:true
   }
-]
-;
+]};
 
 
-const changeReducer=(state=[],action)=>{
+const changeReducer=(state=initState,action)=>{
   switch(action.type){
   case 'HIDE':
-    let newColors=colors.filter(color=>color.id!==action.id&&color.id<action.index);
+    let newColors=state.posts.filter(color=>color.id!==action.id&&color.id<action.index);
   // console.log(newColors);
-return [...state,newColors];
-case 'DECREMENT':
+return {...state,posts:newColors};
+/*case 'DECREMENT':
   return [...state.slice(0,action.payload),
-  ...state.slice(action.payload+1)];
+  ...state.slice(action.payload+1)];*/
 
 
 default :

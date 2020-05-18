@@ -8,13 +8,6 @@ return{
     
 };
 
-export const decrement=(i)=>{
-    return{
-        type:'DECREMENT',
-        payload:i
-    };
-        
-    };
 
 
 

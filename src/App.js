@@ -4,7 +4,7 @@ import allReducer from './reducers/allReducer';
 import {createStore} from 'redux';
 import colors from './shared/colors';   
 import {increment,decrement,changeState,setAdd, unsetAdd} from './actions/counter';
-import {Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle, Button} from 'reactstrap';
+import {Card,CardImg,CardText,CardBody,CardTitle, Button} from 'reactstrap';
 
 
 
@@ -12,11 +12,12 @@ const App=(props)=>{
   
   const store=createStore(allReducer);
   const counter=useSelector(state=>state.counter);
-  const coolors=useSelector(state=>state.changeReducer);
+  const colors_list=useSelector(state=>state.changeReducer);
 const visibility=useSelector(state=>state.visibility);
 
   const dispatch=useDispatch();
-const newColors=coolors[coolors.length-1];
+//const newColors=coolors[coolors.length-1];
+const newColors=colors_list.posts;
 const ans=counter[counter.length-1];
 
 // console.log(visibility);
@@ -25,7 +26,7 @@ console.log(newColors);
 let req1;
 let req2;
 
-const reqi=colors.filter((colore)=>colore.id<=ans);
+const reqi=colors.filter((each_color)=>each_color.id<=ans);
  
   req1=reqi.map((colori)=>{
   
@@ -43,7 +44,7 @@ const reqi=colors.filter((colore)=>colore.id<=ans);
 
   </div>
   <div className="col-12  col-md-5 m-1">
-  <button  onClick={()=>{dispatch(changeState(colori.id));dispatch(unsetAdd());dispatch(decrement(colori.id))}}>HIDE</button>
+  <button  onClick={()=>{dispatch(changeState(colori.id));dispatch(unsetAdd())}}>HIDE</button>
   </div>
     </div>
 
@@ -53,7 +54,7 @@ const reqi=colors.filter((colore)=>colore.id<=ans);
 });
   
 
-  if(newColors!=undefined){
+if(newColors!=undefined){
     req2=newColors.map((colori)=>{
   
       return(
@@ -69,7 +70,7 @@ const reqi=colors.filter((colore)=>colore.id<=ans);
     
       </div>
       <div className="col-12  col-md-5 m-1">
-      <button  onClick={()=>{dispatch(changeState(colori.id));dispatch(unsetAdd());dispatch(decrement(colori.id))}}>HIDE</button>
+      <button  onClick={()=>{dispatch(changeState(colori.id));dispatch(unsetAdd())}}>HIDE</button>
       </div>
         </div>
     
