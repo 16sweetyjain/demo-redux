@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import {createStore} from 'redux';
 import allReducer from './reducers/allReducer';
 import {Provider} from 'react-redux';
-
+//import Colors from './shared/colors';
 
 
 const store=createStore(allReducer);
